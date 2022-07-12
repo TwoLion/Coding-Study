@@ -1,5 +1,9 @@
 # 문제
-# 각 자리가 숫자 (0부터 9)로만 이루어진 문자열 S가 주어졌을 때, 왼쪽부터 오른쪽으로 하나씩 모든 숫자를 확인하며 숫자 사이에 'x' 혹은 '+' 연산자를 넣어 결과적으로 만들어질 수 있는 가장 큰 수를 구하는 프로그램을 작성하세요. 모든 연산은 왼쪽에서부터 순서대로 이루어진다고 가정합니다.
+# 각 자리가 숫자 (0부터 9)로만 이루어진 문자열 S가 주어졌을 때,
+# 왼쪽부터 오른쪽으로 하나씩 모든 숫자를 확인하며 숫자 사이에 'x' 혹은 '+' 연산자를 넣어
+# 결과적으로 만들어질 수 있는 가장 큰 수를 구하는 프로그램을 작성하세요. 모든 연산은 왼쪽에서부터 순서대로 이루어진다고 가정합니다.
+
+
 
 # 입력 조건 : 첫째 줄에 여러 개의 숫자로 구성된 하나의 문자열 S가 주어집니다.
 # 출력 조건 : 첫째 줄에 만들어질 수 있는 가장 큰 수를 출력합니다.
@@ -70,3 +74,33 @@ def multiply(arr):
   return reduce(lambda x, y: x*y, arr)
 
 print(multiply(a))
+
+
+# 더하기, 곱하기 결과 비교해서 큰 값만 살리기 vs 1, 0 고려해서 식 짜보기.
+# 틀린 이유 : 1을 고려하지 않음 : 1인 경우 더해주어야 함.
+
+a = list(map(int, list(input())))
+
+result = a[0]
+
+for i in range(1, len(a)):
+
+  if a[i]<=1 or result<=1:
+    result += a[i]
+  else:
+    result *= a[i]
+
+print(result)
+
+# another solution
+
+a = list(map(int, list(input())))
+
+result =a[0]
+
+for i in range(1, len(a)):
+
+  result = max(result*a[i], result+a[i])
+
+
+print(result)
