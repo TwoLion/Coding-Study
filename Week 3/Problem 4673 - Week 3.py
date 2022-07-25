@@ -27,5 +27,6 @@ num_10000 =set(range(1, 10001))
 final = list(num_10000-result)
 final.sort()
 
-for i in final:
-    print(i)
+print(*final, sep ='\n')
+
+# print에 *를 붙이면 list 안 원소만 출력해줌.

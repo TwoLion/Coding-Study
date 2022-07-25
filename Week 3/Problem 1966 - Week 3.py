@@ -57,3 +57,7 @@ for _ in range(T):
             impo.append(a)
 
     print(count)
+
+
+# enumerate : index도 같이 출력해주는 함수
+
